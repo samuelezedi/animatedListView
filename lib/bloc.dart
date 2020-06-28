@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class Bloc extends ChangeNotifier {
 
-  List<double> _width;
-  List<double> _heights;
+  List<double> _width = [];
+  List<double> _heights = [];
 
   getWidth(int index) {
     return _width[index];
   }
 
-  getHeigth(int index) {
+  getHeight(int index) {
     return _heights[index];
   }
 
