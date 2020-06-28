@@ -1,5 +1,6 @@
 import 'package:animatedlistview/models/list_data.dart';
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,37 +40,43 @@ class _AnimatedListViewState extends State<AnimatedListView> {
         elevation: 0,
       ),
       body: NotificationListener<ScrollNotification>(
-        onNotification: (){
+        onNotification: (notification){
 
         },
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
             itemBuilder: (context, index){
-                return Column(
-                  children: <Widget>[
-                    Container(
-                      width: 120.0,
-                      height: 120.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18.0),
-                        image: DecorationImage(
-                          image: NetworkImage(listData[index].thumbNail)
-                        )
-                      ),
+                return VisibilityDetector(
+                  key: Key("unique-key-${index.toString()}"),
+                  onVisibilityChanged: (VisibilityInfo info) {
+                    debugPrint("${info.visibleFraction} of my widget is visible");
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        width: 120.0,
+                        height: 120.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18.0),
+                          image: DecorationImage(
+                            image: NetworkImage(listData[index].thumbNail)
+                          )
+                        ),
 
-                    ),
-                    Text(
-                      listData[index].channelTitle,
-                      style: TextStyle(
-                        fontFamily: 'Rubik',
-                        fontSize: 16,
-                        color: const Color(0xff5927ff),
-                        fontWeight: FontWeight.w500,
-                        height: 2,
                       ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ],
+                      Text(
+                        listData[index].channelTitle,
+                        style: TextStyle(
+                          fontFamily: 'Rubik',
+                          fontSize: 16,
+                          color: const Color(0xff5927ff),
+                          fontWeight: FontWeight.w500,
+                          height: 2,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
+                  ),
                 );
             },
             separatorBuilder: (context, index){
