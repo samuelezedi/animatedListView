@@ -1,3 +1,4 @@
+import 'package:animatedlistview/models/list_data.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,9 +28,27 @@ class AnimatedListView extends StatefulWidget {
 }
 
 class _AnimatedListViewState extends State<AnimatedListView> {
+
+  var listData = youtubeData;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Animated ListView'),
+        elevation: 0,
+      ),
+      body: ListView.separated(
+          itemBuilder: (context, index){
+
+          },
+          separatorBuilder: (context, index){
+            return SizedBox(
+              width: 15,
+            );
+          },
+          itemCount: listData.length),
+    );
   }
 }
 
