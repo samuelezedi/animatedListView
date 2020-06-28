@@ -10,11 +10,17 @@ class VerticalList extends StatefulWidget {
 class _VerticalListState extends State<VerticalList> {
   var listData = youtubeData;
   GlobalKey<AnimatedListState> key = GlobalKey();
+  var list = <YoutubeModel>[];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    for(var index = 0; index < listData.length;index++)
+    {
+      list.add(listData[index]);
+      key.currentState.insertItem(index);
+    }
   }
 
   @override
@@ -28,9 +34,29 @@ class _VerticalListState extends State<VerticalList> {
       ),
       body: AnimatedList(
         key: key,
-        initialItemCount: listData.length,
-        itemBuilder: (context, index, animation) {
-
+        initialItemCount: list.length,
+        itemBuilder: (context, index, Animation animation) {
+          return SizeTransition(
+            sizeFactor: animation,
+            child: Card(
+              elevation: 2,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(list[index].thumbNail),
+                            fit: BoxFit.cover
+                        )
+                    ),
+                  ),
+                  Text(list[index].title)
+                ],
+              ),
+            ),
+          );
         },
       )
     );
