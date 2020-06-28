@@ -48,13 +48,13 @@ class _AnimatedListViewState extends State<AnimatedListView> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18.0),
                       image: DecorationImage(
-                        image: AssetImage()
+                        image: NetworkImage(listData[index].thumbNail)
                       )
                     ),
 
                   ),
                   Text(
-                    'Fashion',
+                    listData[index].channelTitle,
                     style: TextStyle(
                       fontFamily: 'Rubik',
                       fontSize: 16,
