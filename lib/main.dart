@@ -1,5 +1,6 @@
 import 'package:animatedlistview/bloc.dart';
 import 'package:animatedlistview/models/list_data.dart';
+import 'package:animatedlistview/seconlist.dart';
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AnimatedListView(),
+      home: VerticalList(),
     );
   }
 }
