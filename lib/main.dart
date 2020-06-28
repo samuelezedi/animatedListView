@@ -39,6 +39,7 @@ class _AnimatedListViewState extends State<AnimatedListView> {
         elevation: 0,
       ),
       body: ListView.separated(
+        scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
               return Column(
                 children: <Widget>[

@@ -63,4 +63,17 @@ List<YoutubeModel> youtubeData = [
     likeCount: "20k",
     dislikeCount: "51",
   ),
+  YoutubeModel(
+    title: "Eminem - Venom",
+    description: "Listen to Venom (Music From The Motion Picture), out now: http://smarturl.it/EminemVenom",
+    thumbNail:
+    "https://i.ytimg.com/vi/8CdcCD5V-d8/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA7A5_7k458KMkDNG0sweixgq856g",
+    publishedTime: "6 days ago",
+    channelTitle: "EminemMusic",
+    channelAvatar:
+    "https://yt3.ggpht.com/-qtnbIDAbSNQ/AAAAAAAAAAI/AAAAAAAAAJc/Zt6FE6ofr1I/s88-nd-c-c0xffffffff-rj-k-no/photo.jpg",
+    viewCount: "53M views",
+    likeCount: "20k",
+    dislikeCount: "51",
+  ),
 ];
